@@ -1,0 +1,38 @@
+.banner {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 5px 0; /* Giảm padding top-bottom cho thấp hơn */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  position: relative;
+  z-index: 100;
+  animation: blink 1.5s infinite;
+}
+
+.banner .logo img {
+  height: auto;
+  width: auto;
+  max-height: 60px; /* ❗ Thu nhỏ logo lại thêm */
+  max-width: 100%;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .banner {
+    padding: 5px 0;
+  }
+  
+  .banner .logo img {
+    max-height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner .logo img {
+    max-height: 40px;
+  }
+}

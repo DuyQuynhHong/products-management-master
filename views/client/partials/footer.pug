@@ -1,0 +1,95 @@
+link(rel="stylesheet", href="/css/footer.css")
+
+footer.footer 
+    .container.py-4
+        .row
+            .col-lg-3.col-md-6.mb-4.mb-md-0
+                h5.text-uppercase.mb-3 Thông tin công ty
+                if setting.logo
+                    img.footer-logo.mb-3(src=setting.logo, alt="Logo", width="120")
+                p.text-light #{setting.copyRight}
+                if setting.webSiteName
+                    p.mb-1 #{setting.webSiteName}
+                if setting.address
+                    p.mb-1
+                        i.fas.fa-map-marker-alt.mr-2
+                        | #{setting.address}
+            
+            .col-lg-3.col-md-6.mb-4.mb-md-0
+                h5.text-uppercase.mb-3 Liên kết nhanh
+                ul.list-unstyled
+                    li.mb-2
+                        a.footer-link(href="/") 
+                            i.fas.fa-angle-right.mr-2
+                            | Trang chủ
+                    li.mb-2
+                        a.footer-link(href="/products") 
+                            i.fas.fa-angle-right.mr-2
+                            | Sản phẩm
+                    li.mb-2
+                        a.footer-link(href="/cart") 
+                            i.fas.fa-angle-right.mr-2
+                            | Giỏ hàng
+                    li.mb-2
+                        a.footer-link(href="/user/register") 
+                            i.fas.fa-angle-right.mr-2
+                            | Đăng ký
+                    li.mb-2
+                        a.footer-link(href="/user/login") 
+                            i.fas.fa-angle-right.mr-2
+                            | Đăng nhập
+            
+            .col-lg-3.col-md-6.mb-4.mb-md-0
+                h5.text-uppercase.mb-3 Liên hệ
+                ul.list-unstyled
+                    if setting.phone
+                        li.mb-2
+                            a.footer-link(href=`tel:${setting.phone}`)
+                                i.fas.fa-phone.mr-2
+                                | #{setting.phone}
+                    if setting.email
+                        li.mb-2
+                            a.footer-link(href=`mailto:${setting.email}`)
+                                i.fas.fa-envelope.mr-2
+                                | #{setting.email}
+                    li.mb-2
+                        a.footer-link(href="#")
+                            i.fas.fa-clock.mr-2
+                            | 8:00 - 22:00, Thứ 2 - Chủ nhật
+                    li.mb-2
+                        a.footer-link(href="#")
+                            i.fas.fa-headset.mr-2
+                            | Hỗ trợ 24/7
+            
+            .col-lg-3.col-md-6.mb-4.mb-md-0
+                h5.text-uppercase.mb-3 Đăng ký nhận tin
+                p Nhận thông tin ưu đãi mới nhất từ chúng tôi
+                form.newsletter-form(action="#", method="POST")
+                    input(type="email", placeholder="Email của bạn", required)
+                    button(type="submit")
+                        i.fas.fa-paper-plane
+                
+                h5.text-uppercase.mb-3.mt-4 Mạng xã hội
+                .social-links
+                    a.social-link(href="#", title="Facebook")
+                        i.fab.fa-facebook-f
+                    a.social-link(href="#", title="Twitter")
+                        i.fab.fa-twitter
+                    a.social-link(href="#", title="Instagram")
+                        i.fab.fa-instagram
+                    a.social-link(href="#", title="YouTube")
+                        i.fab.fa-youtube
+                    a.social-link(href="#", title="LinkedIn")
+                        i.fab.fa-linkedin-in
+
+    .copyright.py-3
+        .container
+            .row.align-items-center
+                .col-md-6.text-center.text-md-left
+                    small #{setting.copyRight} - #{new Date().getFullYear()} © Bản quyền thuộc về #{setting.webSiteName || 'Công ty'}
+                .col-md-6.text-center.text-md-right.mt-2.mt-md-0
+                    .payment-methods
+                        img.mr-2(src="https://cdn-icons-png.flaticon.com/64/349/349228.png", alt="Visa", width="32")
+                        img.mr-2(src="https://cdn-icons-png.flaticon.com/64/349/349230.png", alt="MasterCard", width="32")
+                        img.mr-2(src="https://cdn-icons-png.flaticon.com/64/349/349247.png", alt="PayPal", width="32")
+                        img(src="https://cdn-icons-png.flaticon.com/64/5968/5968269.png", alt="MoMo", width="32")

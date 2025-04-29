@@ -1,0 +1,44 @@
+extends ../../layouts/default.pug
+
+block main 
+    .product-category-detail
+        if(product.title) 
+            h1 #{product.title}
+        
+        .product-info-container
+            if(product.parent_id) 
+                .info-section
+                    .info-label Danh mục cha
+                    .info-value #{product.parent}
+
+            if(product.thumbnail)
+                .thumbnail-section
+                    img(src= product.thumbnail, alt= product.title)
+            
+            if(product.status)
+                .status-section
+                    .info-label Trạng thái
+                    .info-value
+                        if(product.status == "active")
+                            span(class="badge badge-success") Hoạt động 
+                        else 
+                            span(class="badge badge-danger") Dừng hoạt động
+
+            if(product.position)
+                .position-section
+                    .info-label Vị trí
+                    .info-value 
+                        b #{product.position}
+
+        if(product.description)
+            .description-section
+                .info-label Mô tả chi tiết
+                .description-content !{product.description}
+
+        .actions-section
+            a(
+                href=`${prefixAdmin}/products/edit/${product.id}`
+                class='btn btn-warning btn-sm'
+            ) Chỉnh sửa
+
+    script(src="/admin/js/product.js")

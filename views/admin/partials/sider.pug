@@ -1,0 +1,51 @@
+.sider 
+    .sidebar-toggle
+        button#toggleSidebar(type="button")
+            i.fas.fa-bars
+    .inner-menu 
+        ul 
+            li 
+                a(href=`${prefixAdmin}/dashboard`)
+                    i.fas.fa-tachometer-alt
+                    span Tổng quan 
+
+            if(role.permissions.includes('products-category_view'))
+                li 
+                    a(href=`${prefixAdmin}/products-category`)
+                        i.fas.fa-list
+                        span Danh mục sản phẩm
+
+            if(role.permissions.includes('products_view'))
+                li 
+                    a(href=`${prefixAdmin}/products`)
+                        i.fas.fa-box
+                        span Danh sách sản phẩm 
+
+            if(role.permissions.includes('roles_view'))        
+                li 
+                    a(href=`${prefixAdmin}/roles`)
+                        i.fas.fa-user-tag
+                        span Nhóm quyền
+
+            if(role.permissions.includes('roles_permissions'))
+                li 
+                    a(href=`${prefixAdmin}/roles/permissions`)
+                        i.fas.fa-key
+                        span Phân quyền
+
+            if(role.permissions.includes('accounts_view'))
+                li 
+                    a(href=`${prefixAdmin}/accounts`)
+                        i.fas.fa-user-shield.me-2
+                        span Tài khoản Admin 
+            
+            li 
+                a(href=`${prefixAdmin}/users`)
+                    i.fas.fa-users
+                    span Tài khoản khách hàng
+
+            li 
+                a(href=`${prefixAdmin}/setting/general`)
+                    i.fas.fa-cog
+                    span Cài đặt chung
+

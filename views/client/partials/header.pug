@@ -1,0 +1,74 @@
+include ../mixins/sub-menu.pug
+
+link(rel="stylesheet", href="/css/header.css")
+
+header.header 
+    .container 
+        .row 
+            .col-3 
+                .inner-logo 
+                    img(src=setting.logo, alt="Logo")
+
+
+            .col-5
+                form(
+                    action="/search"
+                    method="GET"  
+                )
+                    div(class="form-group d-flex mb-0")
+                        input(
+                            type="text"
+                            class="form-control"
+                            name="keyword"
+                            placeholder="Tìm kiếm sản phẩm"
+                            value = keyword
+                        )
+                        button(
+                            type="submit"
+                            class="btn btn-primary search-button"
+                        ) 
+                            i.fa-solid.fa-magnifying-glass
+                            span.search-text Tìm
+                        
+            .col-4
+                .inner-menu 
+                    ul 
+                        li 
+                            a(href="/", class="icon-link")
+                                i.fa-solid.fa-house
+                                span.menu-text Home
+                        li(class="sub-menu")
+                            -const pathProduct = "/products"
+                            a(href="/products", class="icon-link")
+                                i.fa-solid.fa-list
+                                span.menu-text Category
+                                +sub_item(layoutProductCategory, pathProduct)
+                        li 
+                            a(href="/cart", class="icon-link")
+                                i.fa-solid.fa-cart-shopping
+                                span.menu-text Shopping Cart (#{cart ? cart.totalQuantity : 0})
+                        
+                        if(user)
+                            li 
+                                a(href="/chat", class="icon-link")
+                                    i.fa-solid.fa-message
+                                    span.menu-text Chat
+                            li 
+                                a(href="/user/info", class="icon-link")
+                                    i.fa-solid.fa-user
+                                    span.menu-text #{user.fullName}
+                            li 
+                                a(href="/user/logout", class="icon-link")
+                                    i.fa-solid.fa-right-from-bracket
+                                    span.menu-text Logout
+                        else 
+                            li 
+                                a(href="/user/register", class="icon-link")
+                                    i.fa-solid.fa-user-plus
+                                    span.menu-text Register
+                            li
+                                a(href="/user/login", class="icon-link")
+                                    i.fa-solid.fa-right-to-bracket
+                                    span.menu-text Login
+
+        
